@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CrookApp</title>
+    <style>
+        #slideholder {
+            height: 300px;
+            width: 250px;
+            border: 1px black solid;
+        }
+        #slideholder2 {
+            height: 300px;
+            width: 250px;
+            border: 1px black solid;
+        }
+        #slideholder3 {
+            height: 300px;
+            width: 250px;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+<div id="slideholder"></div>
+<script>
+    var plaatjes = [1,2,3];
+    var teller = 1;
+    var slideholder = document.getElementById("slideholder");
+    slideholder.style.backgroundImage = "url('img/hoofd1.png')";
+
+    slideholder.addEventListener("click", function () {
+        gethoofd();
+        slideholder.style.backgroundImage = "url('img/hoofd"+ gethoofd() +".png')"
+    });
+
+    function gethoofd() {
+        if (teller >= plaatjes.length) {
+            teller = 1;
+        }else {
+            teller++;
+        }
+        console.log(teller);
+        return teller;
+    }
+
+    </script>
+    <div id="slideholder2"></div>
+    <script>
+    var plaatjes2 = [1,2,3];
+    var teller2 = 1;
+    var slideholder2 = document.getElementById("slideholder2");
+    slideholder2.style.backgroundImage = "url('img/body3.png')";
+
+    slideholder2.addEventListener("click", function () {
+        getbody();
+        slideholder2.style.backgroundImage = "url('img/body"+ getbody() +".png')"
+    });
+
+    function getbody() {
+        if (teller2 >= plaatjes2.length) {
+            teller2 = 1;
+        }else {
+            teller2++;
+        }
+        console.log(teller2);
+        return teller2;
+    }
+
+    </script>
+    <div id="slideholder3"></div>;
+    <script>
+    var plaatjes3 = [1,2,3];
+    var teller3 = 1;
+    var slideholder3 = document.getElementById("slideholder3");
+    slideholder3.style.backgroundImage = "url('img/leg1.png')";
+
+    slideholder3.addEventListener("click", function () {
+        getleg();
+        slideholder3.style.backgroundImage = "url('img/leg"+ getleg() +".png')"
+    });
+
+    function getleg() {
+        if (teller3 >= plaatjes3.length) {
+            teller3 = 1;
+        }else {
+            teller3++;
+        }
+        console.log(teller3);
+        return teller3;
+    }
+</script>
+</body>
+</html>
