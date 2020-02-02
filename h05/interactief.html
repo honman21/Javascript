@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose yer Panda</title>
+    <style>
+
+        body {
+            font-family: 'Copse', serif;
+            text-align: center;
+        }
+        div.picture-holder {
+            box-sizing: border-box;
+            height: 450px;
+            width: 300px;
+            float: left;
+            background-color: blue;
+            border: solid 1px black;
+        }
+
+        div.favoriet {
+            width: 300px;
+            height: 150px;
+            background-color: white;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #pics {
+            width: 900px;
+            height: 1350px;
+            border: solid 1px black;
+            font-size: 0px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Pandachooser</h1>
+<h3>Choose yer favorite panda</h3>
+<div id="pics">
+
+</div>
+<script>
+    pics  = document.getElementById("pics");
+    createPicsHolders();
+    createPandaImages();
+
+
+    function createPicsHolders () {
+        for (var i = 0; i < 9; i++) {
+            pictureHolder = document.createElement("div");
+            pictureHolder.className = "picture-holder";
+            pictureHolder.id = "picture-holder-" + i;
+            pics.appendChild(pictureHolder);
+        }
+    }
+    
+    function createPandaImages () {
+         pictureHolder = document.getElementsByClassName("picture-holder");
+        for (var i = 0; i < pictureHolder.length; i++) {
+            favoriet = document.createElement("div");
+            favoriet.className = "favoriet";
+            favoriet.id = "favoriet_" + (i+1);
+            pandaPlaatje = document.createElement("img");
+            pandaPlaatje.id = (i+1);
+            pandaPlaatje.src ="img/panda" +(i+1) + ".jpg";
+            pandaPlaatje.addEventListener("click", function () {
+                maakFavoriet(this.id);
+            });
+            pictureHolder[i].appendChild(favoriet);
+            pictureHolder[i].appendChild(pandaPlaatje)
+        }
+    }
+
+    function maakFavoriet(id) {
+        notsofavoriet = document.getElementById("favoriet");
+        notsofavoriet = document.getElementsByClassName("favoriet");
+
+        for (var i = 0; i < notsofavoriet.length; i++) {
+            notsofavoriet[i].style.backgroundImage = "none";
+        }
+        favoriet = document.getElementById("favoriet_" + id);
+        favoriet.style.backgroundImage = "url('img/heart.png')";
+
+    }
+
+</script>
+
+</body>
+</html>
+
+<!--newElement = document.createElement("div");-->
+<!--newElement.className = "pandapic";-->
+<!--pics.appendChild(newElement);-->
